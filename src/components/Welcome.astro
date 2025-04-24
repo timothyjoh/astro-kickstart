@@ -1,6 +1,8 @@
 ---
 import astroLogo from '../assets/astro.svg';
 import background from '../assets/background.svg';
+import IconCards from './preline/IconCards.astro';
+import IconBlocks from './preline/IconBlocks.astro';
 ---
 
 <div id="container">
@@ -11,7 +13,7 @@ import background from '../assets/background.svg';
 				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
 			>
 			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
+				To get started, open the <code><pre class="font-code">src/pages</pre></code> directory in your project.
 			</h1>
 			<section id="links">
 				<a class="button" href="https://docs.astro.build">Read our docs</a>
@@ -23,6 +25,9 @@ import background from '../assets/background.svg';
 						></path></svg
 					>
 				</a>
+			</section>
+			<section>
+				<IconBlocks />
 			</section>
 		</section>
 	</main>
@@ -53,7 +58,6 @@ import background from '../assets/background.svg';
 	}
 
 	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		height: 100%;
 	}
 
@@ -114,8 +118,6 @@ import background from '../assets/background.svg';
 	}
 
 	pre {
-		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-			'DejaVu Sans Mono', monospace;
 		font-weight: normal;
 		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
 		-webkit-background-clip: text;

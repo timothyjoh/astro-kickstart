@@ -1,9 +1,9 @@
-'use client'
-
 import { id, i, init, type InstaQLEntity } from '@instantdb/react'
+import { Checkbox } from '@ariakit/react'
+import crosscircle from 'public/icons/cross-circle.svg'
 
 // ID for app: Tims astro kickstart
-const APP_ID = import.meta.env.INSTANTDB_APP_ID
+const APP_ID = import.meta.env.PUBLIC_INSTANTDB_APP_ID
 
 // Optional: Declare your schema!
 const schema = i.schema({
@@ -31,13 +31,11 @@ function App() {
   }
   const { todos } = data
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>todos</div>
+    <main>
       <TodoForm todos={todos} />
       <TodoList todos={todos} />
       <ActionBar todos={todos} />
-      <div style={styles.footer}>Open another tab to see todos update in realtime!</div>
-    </div>
+    </main>
   )
 }
 
@@ -76,18 +74,18 @@ function toggleAll(todos: Todo[]) {
 // ----------
 function TodoForm({ todos }: { todos: Todo[] }) {
   return (
-    <div style={styles.form}>
-      <div style={styles.toggleAll} onClick={() => toggleAll(todos)}>
-        ⌄
-      </div>
+    <div>
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          addTodo(e.target[0].value)
+          addTodo(e.target.elements['todoinput'].value)
           e.target[0].value = ''
         }}
       >
-        <input style={styles.input} autoFocus placeholder="What needs to be done?" type="text" />
+        <label className="label">
+          Create a new Todo:&nbsp;
+          <input autoFocus placeholder="What needs to be done?" type="text" className="input" name="todoinput" />
+        </label>
       </form>
     </div>
   )
@@ -95,117 +93,105 @@ function TodoForm({ todos }: { todos: Todo[] }) {
 
 function TodoList({ todos }: { todos: Todo[] }) {
   return (
-    <div style={styles.todoList}>
-      {todos.map((todo) => (
-        <div key={todo.id} style={styles.todo}>
-          <input
-            type="checkbox"
-            key={todo.id}
-            style={styles.checkbox}
-            checked={todo.done}
-            onChange={() => toggleDone(todo)}
-          />
-          <div style={styles.todoText}>
-            {todo.done ? <span style={{ textDecoration: 'line-through' }}>{todo.text}</span> : <span>{todo.text}</span>}
-          </div>
-          <span onClick={() => deleteTodo(todo)} style={styles.delete}>
-            𝘟
-          </span>
-        </div>
-      ))}
+    <div className="overflow-x-auto">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Done?</th>
+            <th>Task</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {todos.map((todo) => (
+            <tr key={todo.id}>
+              <th>
+                <label className="label">
+                  <Checkbox key={todo.id} checked={todo.done} onChange={() => toggleDone(todo)} />
+                </label>
+              </th>
+              <td>
+                {todo.done ? (
+                  <span style={{ textDecoration: 'line-through' }}>{todo.text}</span>
+                ) : (
+                  <span>{todo.text}</span>
+                )}
+              </td>
+              <td>
+                <img src={crosscircle.src} alt="delete" className="w-5 h-5" onClick={() => deleteTodo(todo)} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
 
 function ActionBar({ todos }: { todos: Todo[] }) {
   return (
-    <div style={styles.actionBar}>
-      <div>Remaining todos: {todos.filter((todo) => !todo.done).length}</div>
-      <div style={{ cursor: 'pointer' }} onClick={() => deleteCompleted(todos)}>
-        Delete Completed
+    <div className="stats shadow fixed bottom-3 right-3">
+      <div className="stat">
+        <div className="stat-figure text-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block h-8 w-8 stroke-current fill-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <div className="stat-title">Remaining</div>
+        <div className="stat-value">{todos.filter((todo) => !todo.done).length}</div>
+      </div>
+
+      <div className="stat">
+        <div className="stat-figure text-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block h-8 w-8 stroke-current fill-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+            ></path>
+          </svg>
+        </div>
+        <div className="stat-title">Total</div>
+        <div className="stat-value">{todos.length}</div>
+      </div>
+
+      <div className="stat">
+        <div className="stat-figure text-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block h-8 w-8 stroke-current fill-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+            ></path>
+          </svg>
+        </div>
+        <div className="stat-title">Completed</div>
+        <div className="stat-value">{todos.filter((todo) => todo.done).length}</div>
       </div>
     </div>
   )
-}
-
-// Styles
-// ----------
-const styles: Record<string, React.CSSProperties> = {
-  container: {
-    boxSizing: 'border-box',
-    fontFamily: 'code, monospace',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  header: {
-    letterSpacing: '2px',
-    fontSize: '50px',
-    color: 'lightgray',
-    marginBottom: '10px',
-  },
-  form: {
-    boxSizing: 'inherit',
-    display: 'flex',
-    border: '1px solid lightgray',
-    borderBottomWidth: '0px',
-    width: '350px',
-  },
-  toggleAll: {
-    fontSize: '30px',
-    cursor: 'pointer',
-    marginLeft: '11px',
-    marginTop: '-6px',
-    width: '15px',
-    marginRight: '12px',
-  },
-  input: {
-    backgroundColor: 'transparent',
-    fontFamily: 'code, monospace',
-    width: '287px',
-    padding: '10px',
-    fontStyle: 'italic',
-  },
-  todoList: {
-    boxSizing: 'inherit',
-    width: '350px',
-  },
-  checkbox: {
-    fontSize: '30px',
-    marginLeft: '5px',
-    marginRight: '20px',
-    cursor: 'pointer',
-  },
-  todo: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '10px',
-    border: '1px solid lightgray',
-    borderBottomWidth: '0px',
-  },
-  todoText: {
-    flexGrow: '1',
-    overflow: 'hidden',
-  },
-  delete: {
-    width: '25px',
-    cursor: 'pointer',
-    color: 'lightgray',
-  },
-  actionBar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '328px',
-    padding: '10px',
-    border: '1px solid lightgray',
-    fontSize: '10px',
-  },
-  footer: {
-    marginTop: '20px',
-    fontSize: '10px',
-  },
 }
 
 export default App

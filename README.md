@@ -1,16 +1,9 @@
-# Astro Starter Kit: Basics
+# Richardson Astro Starter Kit
 
 ```sh
-npm create astro@latest -- --template basics
+npm i
+npm run dev
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
 ## 🚀 Project Structure
 
@@ -21,6 +14,9 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── components/
+│   │   └── TodoApp.tsx
+│   │   └── Welcome.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
@@ -43,6 +39,21 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Resources
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Fonts
+
+All fonts are installed via NPM from Fontsource. https://fontsource.org/
+
+1. Import fonts at the top of your Astro Layout file eg: `src/layouts/Layout.astro`
+2. Add CSS classes to your Astro global css file eg: `src/styles/global.css`
+
+### Components
+
+This project intentionally is setup to use ARIA-tested components as a base from https://ariakit.org/
+
+Secondarily, components from DaisyUI https://daisyui.com/ should be used where pure-tailwind components are sufficient. DaisyUI also allows a mechanism for themeability that we use to create custom themes for our clients and users.
+
+In the case other components are needed, feel free to use Radix and ShadCn components, ensuring that your implementation of them fits with the accessibility standards of the project, and the general look-and-feel and themeable nature that DaisyUI allows.
+
+

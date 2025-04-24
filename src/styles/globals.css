@@ -1,68 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@layer base {
-  :root {
-    --background: 196 65% 100%;
-    --foreground: 196 50% 3%;
-    --muted: 316 19% 87%;
-    --muted-foreground: 316 9% 37%;
-    --popover: 196 65% 100%;
-    --popover-foreground: 196 50% 3%;
-    --card: 196 65% 100%;
-    --card-foreground: 196 50% 3%;
-    --border: 196 8% 91%;
-    --input: 196 8% 91%;
-    --primary: 196 98% 64%;
-    --primary-foreground: 196 98% 4%;
-    --secondary: 316 98% 64%;
-    --secondary-foreground: 316 98% 4%;
-    --accent: 76 98% 64%;
-    --accent-foreground: 76 98% 4%;
-    --destructive: 21 89% 38%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 196 98% 64%;
-    --chart-1: 196 98% 64%;
-    --chart-2: 316 98% 64%;
-    --chart-3: 76 98% 64%;
-    --chart-4: 316 98% 67%;
-    --chart-5: 196 101% 64%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 196 43% 1%;
-    --foreground: 196 36% 100%;
-    --muted: 316 19% 13%;
-    --muted-foreground: 316 9% 63%;
-    --popover: 196 43% 1%;
-    --popover-foreground: 196 36% 100%;
-    --card: 196 43% 1%;
-    --card-foreground: 196 36% 100%;
-    --border: 196 8% 13%;
-    --input: 196 8% 13%;
-    --primary: 196 98% 64%;
-    --primary-foreground: 196 98% 4%;
-    --secondary: 316 98% 64%;
-    --secondary-foreground: 316 98% 4%;
-    --accent: 76 98% 64%;
-    --accent-foreground: 76 98% 4%;
-    --destructive: 21 89% 46%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 196 98% 64%;
-    --chart-1: 196 98% 64%;
-    --chart-2: 316 98% 64%;
-    --chart-3: 76 98% 64%;
-    --chart-4: 316 98% 67%;
-    --chart-5: 196 101% 64%;
-  }
+@import 'tailwindcss';
+@plugin 'daisyui' {
+  themes: all;
 }
 
-@layer base {
+:root {
   * {
-    @apply border-border;
+    font-family: 'Nebula Sans';
   }
   body {
-    @apply bg-background text-foreground;
+    @apply font-sans;
+  }
+  .font-sans {
+    font-family: 'Nebula Sans';
+  }
+  .font-hand {
+    font-family: 'Kalam', cursive;
+  }
+  .font-code {
+    font-family: 'Fira Code Variable', monospace;
+  }
+  .font-cute {
+    font-family: 'Comfortaa Variable', system-ui;
+  }
+  .font-serif {
+    font-family: 'Lora Variable', serif;
   }
 }

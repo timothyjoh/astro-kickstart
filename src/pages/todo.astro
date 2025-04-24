@@ -7,5 +7,24 @@ import TodoApp from '../components/TodoApp'
 ---
 
 <Layout>
-	<TodoApp client:only />
+	<div id="container">
+		<h1 class="text-xl">Todos</h1>
+		<TodoApp client:only />
+	</div>
 </Layout>
+
+<style>
+	#container {
+		height: 100%;
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 3rem;
+	}
+
+	main {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+</style>
