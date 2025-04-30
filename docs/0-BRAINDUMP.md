@@ -39,6 +39,10 @@ Goal: To simplify our product suite as well as enrich it. To take the lessons we
    2. Clients want to be able to add in new client-specific pages
    3. These customizations need to also be able to support translations into multiple languages. We went through some hoops in Learn to build CMS features in the Admin-side to support this. It would be better if all these variations lived natively in Contentstack.
 5. There will be other tools we will want to build into CS to improve the authoring experience in future cycles. 
+6. Contentstack also has features called Automation and BrandKit that we want to leverage in the future. Using these tools, we could automate the creation of variants, and auotmate the translation of our content using AI. 
+   1. For instance we want to be able to create a "banking industry" variant of our 40+ courses, in one fell-swoop. We build the automation to: "go into all the Atoms, and the ones that are marked TRUE for customization, change the content (using AI) to examples from a banking perspective". 
+   2. Similar to above, but we might take a bunch of client-specific products or services they are selling and make variants just for that client.
+   3. This will require an easy way for our authors to at least review the content that was newly created by the AI, maybe another interface we need to build.
 
 #### Learning Experience
 
@@ -82,3 +86,7 @@ Broadly speaking, we see the next few steps as the major change we have been dis
    1. Then we will need to add in course navigation for the user to navigate around through the course. 
    2. We will also need to track user activity in the course. Big decision to make  here on whether to have a database, or to use Posthog and sending data back to Insights as the way to store progress.
    3. We will also then integrate Rustici Dispatch to allow launching and tracking this content from other LMSes.
+6. We will integrate Contentstack's CDP (formerly called Lytics) to aid us in user analytics, as well as resolving the variants needed for each user in each tenant.
+   1. Syncing our user DB with the CDP means that we have to send over less data when querying for the page of content (just the user ID, we think).
+   2. We need to investigate more what benefits the CDP will bring us, with the Personalization and targeting features. We also need to see if we can leverage it for more mature understanding of the engagement of each user, and how we can leverage this to use "nudges" to bring these people back into the platform to increase engagement.
+7. We will work with Contentstack's Automation engine and build out some workflows for automating the creation of variants, and the translation of all content.
