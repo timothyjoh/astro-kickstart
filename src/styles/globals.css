@@ -102,19 +102,14 @@
   }
 
   .aside {
-    position: absolute;
-    left: -220px;
-    width: 180px;
-    @apply font-sans text-sm p-2 m-1 w-[200px] text-left;
-    border-right: 3px solid;
+    @apply font-sans text-sm p-2 lg:m-1 lg:w-[200px] text-left lg:left-[-220px] lg:absolute lg:border-r-[3px] border-solid bg-gray-50 border-gray-200 border-l-2 lg:border-l-0 lg:bg-transparent mx-0;
   }
 
   .aside--note {
-    border-color: #ffcc00;
+    @apply border-amber-200 bg-amber-50 lg:bg-transparent;
   }
 
   .aside--tip {
-    background: #f0fdf4;
-    border-color: #1f2320;
+    @apply border-cyan-200 bg-cyan-50 lg:bg-transparent;
   }
 }
