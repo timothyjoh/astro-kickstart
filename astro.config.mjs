@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 import vercel from '@astrojs/vercel'
@@ -12,4 +12,12 @@ export default defineConfig({
   },
   output: 'server',
   adapter: vercel(),
+  env: {
+    schema: {
+      PUBLIC_INSTANTDB_APP_ID: envField.string({
+        context: 'client',
+        access: 'public',
+      }),
+    },
+  },
 })
