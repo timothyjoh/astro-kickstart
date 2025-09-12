@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ariakit/react": "^0.4.17",
+    "@astrojs/mdx": "^4.3.5",
     "@astrojs/react": "^4.3.1",
     "@astrojs/vercel": "^8.2.7",
     "@fontsource-variable/comfortaa": "^5.1.1",

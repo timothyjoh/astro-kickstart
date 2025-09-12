@@ -36,10 +36,10 @@
   }
 
   h1 {
-    @apply font-title text-4xl font-medium text-gray-900 mb-4 leading-tight;
+    @apply font-title text-4xl font-medium text-gray-900 mb-4 py-6 leading-tight;
   }
   .prose {
-    @apply font-serif;
+    @apply font-serif relative;
   }
 
   .prose h2 {
@@ -56,11 +56,16 @@
 
   .prose p {
     @apply font-serif text-base text-gray-800 leading-relaxed mb-4 py-2;
+    em {
+      @apply font-hand not-italic text-[1.05rem];
+    }
   }
 
-  .prose blockquote,
-  .prose blockquote p {
-    @apply border-l-4 border-blue-500 pl-4 my-6 font-hand text-xl text-gray-700;
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-4 my-6;
+    p {
+      @apply font-hand text-lg text-gray-700;
+    }
   }
 
   .prose code {
@@ -94,5 +99,22 @@
 
   .prose em {
     @apply italic;
+  }
+
+  .aside {
+    position: absolute;
+    left: -220px;
+    width: 180px;
+    @apply font-sans text-sm p-2 m-1 w-[200px] text-left;
+    border-right: 3px solid;
+  }
+
+  .aside--note {
+    border-color: #ffcc00;
+  }
+
+  .aside--tip {
+    background: #f0fdf4;
+    border-color: #1f2320;
   }
 }

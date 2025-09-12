@@ -1,0 +1,11 @@
+---
+export interface Props {
+  type?: 'note' | 'tip' | 'caution' | 'danger';
+}
+
+const { type = 'note' } = Astro.props;
+---
+
+<aside class={`aside aside--${type}`}>
+  <slot />
+</aside>

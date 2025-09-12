@@ -33,13 +33,12 @@ const { title, description, date, tags, author = "Your Name" } = Astro.props;
     <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
       <div class="max-w-7xl mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-          <a href="/" class="font-serif text-xl font-bold text-gray-900 hover:text-gray-600 transition-colors">
-            Your Blog
+          <a href="/blog" class="font-serif text-xl font-bold text-gray-900 hover:text-gray-600 transition-colors">
+            Demonstration Blog
           </a>
           <div class="flex gap-6">
             <a href="/" class="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
             <a href="/blog" class="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
-            <a href="/about" class="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a>
           </div>
         </div>
       </div>
@@ -49,7 +48,7 @@ const { title, description, date, tags, author = "Your Name" } = Astro.props;
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <!-- Left Aside Area -->
         <aside class="lg:col-span-3 order-2 lg:order-1">
-          <div class="sticky top-24 space-y-6">
+          <div class="top-24 space-y-6">
             <!-- Post Meta -->
             <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
               <h3 class="font-title text-sm font-semibold text-gray-900 mb-3">Post Details</h3>
