@@ -1,18 +1,24 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// In a real implementation, you'd fetch this data from a CMS or markdown files
-const blogPosts = [
-  {
-    title: "Our Constraints on Creativity",
-    description: "A deep dive into the various ways we limit ourselves creatively and how to overcome these barriers to unlock our full potential.",
-    date: "2024-09-12",
-    slug: "creativity-constraints",
-    tags: ["philosophy", "productivity", "creativity", "psychology"],
-    readTime: "8 min read"
-  }
-  // Add more blog posts here as you create them
-];
+// Fetch all blog posts from the content collection
+const allPosts = await getCollection('blog', ({ data }) => {
+  return !data.draft; // Only show published posts
+});
+
+// Sort by date (newest first)
+const blogPosts = allPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .map(post => ({
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date.toISOString().split('T')[0],
+    slug: post.slug,
+    tags: post.data.tags,
+    readTime: `${Math.ceil(post.body.length / 1000)} min read`, // Rough estimate
+    author: post.data.author
+  }));
 ---
 
 <Layout>
@@ -20,8 +26,8 @@ const blogPosts = [
     <!-- Header -->
     <div class="bg-white border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-6 py-12">
-        <h1 class="font-serif text-4xl font-bold text-gray-900 mb-4">
-          Blog
+        <h1 class="font-title text-4xl font-bold text-gray-900 mb-4">
+          Demonstration Blog
         </h1>
         <p class="font-sans text-xl text-gray-600 leading-relaxed">
           Thoughts on creativity, productivity, and the art of living well.

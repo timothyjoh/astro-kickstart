@@ -31,16 +31,23 @@
     font-weight: 300;
   }
 
+  #anchor {
+    padding-top: 30px;
+  }
+
+  h1 {
+    @apply font-title text-4xl font-medium text-gray-900 mb-4 leading-tight;
+  }
   .prose {
     @apply font-serif;
   }
 
   .prose h2 {
-    @apply font-title text-2xl font-bold text-gray-900 mt-8 mb-4 leading-tight;
+    @apply font-title text-2xl font-medium text-gray-900 mt-8 mb-4 pt-6 leading-tight;
   }
 
   .prose h3 {
-    @apply font-serif text-xl font-bold text-gray-900 mt-6 mb-3 leading-tight;
+    @apply font-serif text-xl font-bold text-gray-900 mt-6 mb-3 pt-6 leading-tight;
   }
 
   .prose h4 {
