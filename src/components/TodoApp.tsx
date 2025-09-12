@@ -82,7 +82,7 @@ function TodoForm({ todos }: { todos: Todo[] }) {
           e.target[0].value = ''
         }}
       >
-        <label className="label">
+        <label className="label font-sans">
           Create a new Todo:&nbsp;
           <input autoFocus placeholder="What needs to be done?" type="text" className="input" name="todoinput" />
         </label>
@@ -147,7 +147,7 @@ function ActionBar({ todos }: { todos: Todo[] }) {
             ></path>
           </svg>
         </div>
-        <div className="stat-title">Remaining</div>
+        <div className="stat-title font-sans">Remaining</div>
         <div className="stat-value">{todos.filter((todo) => !todo.done).length}</div>
       </div>
 
@@ -167,7 +167,7 @@ function ActionBar({ todos }: { todos: Todo[] }) {
             ></path>
           </svg>
         </div>
-        <div className="stat-title">Total</div>
+        <div className="stat-title font-sans">Total</div>
         <div className="stat-value">{todos.length}</div>
       </div>
 
@@ -187,7 +187,7 @@ function ActionBar({ todos }: { todos: Todo[] }) {
             ></path>
           </svg>
         </div>
-        <div className="stat-title">Completed</div>
+        <div className="stat-title font-sans">Completed</div>
         <div className="stat-value">{todos.filter((todo) => todo.done).length}</div>
       </div>
     </div>

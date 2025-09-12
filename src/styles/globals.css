@@ -4,25 +4,43 @@
 }
 
 :root {
-  * {
-    font-family: 'Nebula Sans';
-  }
+  --font-serif: 'Lora Variable', serif;
+  --font-sans: 'Nebula Sans', sans-serif;
+  --font-mono: 'Fira Code Variable', monospace;
   body {
-    @apply font-sans;
+    @apply font-serif;
+    font-size: 16px;
   }
   .font-sans {
-    font-family: 'Nebula Sans';
+    font-family: var(--font-sans);
   }
   .font-hand {
     font-family: 'Kalam', cursive;
   }
   .font-code {
-    font-family: 'Fira Code Variable', monospace;
+    font-family: var(--font-mono);
   }
   .font-cute {
     font-family: 'Comfortaa Variable', system-ui;
   }
   .font-serif {
-    font-family: 'Lora Variable', serif;
+    font-family: var(--font-serif);
   }
+}
+
+h1 {
+  @apply font-serif;
+  font-size: 2rem;
+}
+
+table th {
+  @apply font-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+table td {
+  @apply font-sans;
+  font-size: 1rem;
+  font-weight: 300;
 }

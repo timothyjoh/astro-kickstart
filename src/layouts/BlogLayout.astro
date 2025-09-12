@@ -1,0 +1,256 @@
+---
+import '@/styles/globals.css'
+import '@fontsource/nebula-sans';
+import '@fontsource-variable/lora';
+import '@fontsource/kalam';
+import '@fontsource-variable/comfortaa';
+
+export interface Props {
+  title: string;
+  description?: string;
+  date?: string;
+  tags?: string[];
+  author?: string;
+}
+
+const { title, description, date, tags, author = "Your Name" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="font-cute text-xl font-bold text-gray-900 hover:text-gray-600 transition-colors">
+            Your Blog
+          </a>
+          <div class="flex gap-6">
+            <a href="/" class="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+            <a href="/blog" class="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+            <a href="/about" class="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Left Aside Area -->
+        <aside class="lg:col-span-3 order-2 lg:order-1">
+          <div class="sticky top-24 space-y-6">
+            <!-- Post Meta -->
+            <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+              <h3 class="font-cute text-sm font-semibold text-gray-900 mb-3">Post Details</h3>
+              {date && (
+                <div class="text-xs text-gray-600 mb-2 font-sans">
+                  <span class="font-medium">Published:</span><br />
+                  {new Date(date).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </div>
+              )}
+              <div class="text-xs text-gray-600 mb-2 font-sans">
+                <span class="font-medium">Author:</span><br />
+                {author}
+              </div>
+              {tags && tags.length > 0 && (
+                <div class="text-xs text-gray-600 font-sans">
+                  <span class="font-medium">Tags:</span><br />
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {tags.map(tag => (
+                      <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <!-- Table of Contents Placeholder -->
+            <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+              <h3 class="font-cute text-sm font-semibold text-gray-900 mb-3">Contents</h3>
+              <div id="toc" class="text-xs text-gray-600 font-sans space-y-1">
+                <!-- TOC will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Reading Progress -->
+            <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+              <h3 class="font-cute text-sm font-semibold text-gray-900 mb-3">Reading Progress</h3>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="reading-progress" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="lg:col-span-6 lg:col-start-5 order-1 lg:order-2">
+          <article class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <!-- Article Header -->
+            <header class="mb-8 pb-6 border-b border-gray-200">
+              <h1 class="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                {title}
+              </h1>
+              {description && (
+                <p class="font-sans text-lg text-gray-600 leading-relaxed">
+                  {description}
+                </p>
+              )}
+              <div class="flex items-center gap-4 mt-4 text-sm text-gray-500 font-sans">
+                <span>{author}</span>
+                {date && (
+                  <>
+                    <span>•</span>
+                    <time datetime={date}>
+                      {new Date(date).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}
+                    </time>
+                  </>
+                )}
+              </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="prose prose-lg max-w-none">
+              <slot />
+            </div>
+          </article>
+        </main>
+
+        <!-- Right Area (empty for now, could be used for related posts, ads, etc.) -->
+        <div class="lg:col-span-3 order-3 hidden lg:block">
+          <!-- Reserved for future use -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Table of Contents Generator
+      function generateTOC() {
+        const toc = document.getElementById('toc');
+        const headings = document.querySelectorAll('article h2, article h3, article h4');
+        
+        if (headings.length === 0) {
+          toc.innerHTML = '<span class="text-gray-400">No headings found</span>';
+          return;
+        }
+
+        let tocHTML = '';
+        headings.forEach((heading, index) => {
+          const id = `heading-${index}`;
+          heading.id = id;
+          
+          const level = parseInt(heading.tagName[1]);
+          const indent = level === 2 ? '' : level === 3 ? 'ml-3' : 'ml-6';
+          
+          tocHTML += `<a href="#${id}" class="block hover:text-gray-900 transition-colors ${indent}">${heading.textContent}</a>`;
+        });
+        
+        toc.innerHTML = tocHTML;
+      }
+
+      // Reading Progress
+      function updateReadingProgress() {
+        const article = document.querySelector('article');
+        const scrollTop = window.scrollY;
+        const docHeight = article.offsetHeight;
+        const winHeight = window.innerHeight;
+        const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+        
+        const progressBar = document.getElementById('reading-progress');
+        progressBar.style.width = Math.min(Math.max(scrollPercent, 0), 100) + '%';
+      }
+
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', () => {
+        generateTOC();
+        updateReadingProgress();
+        
+        // Update progress on scroll
+        window.addEventListener('scroll', updateReadingProgress);
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Custom prose styling to integrate with our font system */
+  .prose {
+    @apply font-serif;
+  }
+  
+  .prose h2 {
+    @apply font-serif text-2xl font-bold text-gray-900 mt-8 mb-4 leading-tight;
+  }
+  
+  .prose h3 {
+    @apply font-serif text-xl font-bold text-gray-900 mt-6 mb-3 leading-tight;
+  }
+  
+  .prose h4 {
+    @apply font-serif text-lg font-bold text-gray-900 mt-5 mb-2 leading-tight;
+  }
+  
+  .prose p {
+    @apply font-serif text-base text-gray-800 leading-relaxed mb-4;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-4 my-6 font-serif italic text-gray-700;
+  }
+  
+  .prose code {
+    @apply font-code text-sm bg-gray-100 px-2 py-1 rounded;
+  }
+  
+  .prose pre {
+    @apply font-code text-sm bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  .prose ul, .prose ol {
+    @apply font-serif text-gray-800 ml-6 mb-4;
+  }
+  
+  .prose li {
+    @apply mb-2 leading-relaxed;
+  }
+  
+  .prose a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors;
+  }
+  
+  .prose strong {
+    @apply font-bold text-gray-900;
+  }
+  
+  .prose em {
+    @apply italic;
+  }
+
+  /* Smooth scrolling for TOC links */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
