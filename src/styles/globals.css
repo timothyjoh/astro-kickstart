@@ -2,45 +2,90 @@
 @plugin 'daisyui' {
   themes: all;
 }
+@import './fonts.css';
 
 :root {
-  --font-serif: 'Lora Variable', serif;
-  --font-sans: 'Nebula Sans', sans-serif;
-  --font-mono: 'Fira Code Variable', monospace;
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-serif;
     font-size: 16px;
   }
-  .font-sans {
-    font-family: var(--font-sans);
-  }
-  .font-hand {
-    font-family: 'Kalam', cursive;
-  }
-  .font-code {
-    font-family: var(--font-mono);
-  }
-  .font-cute {
-    font-family: 'Comfortaa Variable', system-ui;
-  }
-  .font-serif {
-    font-family: var(--font-serif);
-  }
-}
 
-h1 {
-  @apply font-serif;
-  font-size: 2rem;
-}
+  h1 {
+    @apply font-serif;
+    font-size: 2rem;
+  }
 
-table th {
-  @apply font-serif;
-  font-size: 0.8rem;
-  font-weight: 300;
-}
+  table th {
+    @apply font-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
 
-table td {
-  @apply font-sans;
-  font-size: 1rem;
-  font-weight: 300;
+  table td {
+    @apply font-sans;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .prose {
+    @apply font-serif;
+  }
+
+  .prose h2 {
+    @apply font-title text-2xl font-bold text-gray-900 mt-8 mb-4 leading-tight;
+  }
+
+  .prose h3 {
+    @apply font-serif text-xl font-bold text-gray-900 mt-6 mb-3 leading-tight;
+  }
+
+  .prose h4 {
+    @apply font-sans text-lg font-bold text-gray-900 mt-5 mb-2 leading-tight;
+  }
+
+  .prose p {
+    @apply font-serif text-base text-gray-800 leading-relaxed mb-4 py-2;
+  }
+
+  .prose blockquote,
+  .prose blockquote p {
+    @apply border-l-4 border-blue-500 pl-4 my-6 font-hand text-xl text-gray-700;
+  }
+
+  .prose code {
+    @apply font-mono text-sm bg-gray-100 px-2 py-1 rounded;
+  }
+
+  .prose pre {
+    @apply font-mono text-sm bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+  }
+
+  .prose pre code {
+    @apply font-mono bg-transparent p-0;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply font-serif text-gray-800 ml-6 mb-4;
+  }
+
+  .prose li {
+    @apply mb-2 leading-relaxed;
+  }
+
+  .prose a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors;
+  }
+
+  .prose strong {
+    @apply font-bold text-gray-900;
+  }
+
+  .prose em {
+    @apply italic;
+  }
 }

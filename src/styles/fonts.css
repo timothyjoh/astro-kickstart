@@ -1,0 +1,28 @@
+@theme {
+  --font-serif: 'Lora Variable', serif;
+  --font-sans: 'Nebula Sans', sans-serif;
+  --font-mono: 'Fira Code Variable', monospace;
+  --font-title: 'Lexend Variable', sans-serif;
+  --font-cute: 'Comfortaa Variable', cursive;
+  --font-hand: 'Kalam', cursive;
+}
+:root {
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .font-hand {
+    font-family: var(--font-hand);
+  }
+  .font-code {
+    font-family: var(--font-mono);
+  }
+  .font-cute {
+    font-family: var(--font-cute);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-title {
+    font-family: var(--font-title);
+  }
+}
