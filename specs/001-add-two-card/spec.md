@@ -3,7 +3,7 @@
 **Feature Branch**: `001-add-two-card`  
 **Created**: 2025-09-22  
 **Status**: Draft  
-**Input**: User description: "Add two card-style links under the homepage hero section that navigate to existing demo pages. Include a card for the Blog located at src/pages/blog that links to /blog and a card for the Todo app located at src/pages/todo.astro that links to /todo. Each card should stay in the same tab when clicked, use the site’s card style, include a concise description, and incorporate an appropriate icon for the content."
+**Input**: User description: "Add two card-style links under the homepage hero section that navigate to existing demo pages. Include a card for the Blog located at src/pages/blog/index.astro that links to /blog and a card for the Todo app located at src/pages/todo.astro that links to /todo. Each card should stay in the same tab when clicked, use the site’s card style, include a concise description, and incorporate an appropriate icon for the content."
 
 ## User Scenarios & Testing *(mandatory)*
 
