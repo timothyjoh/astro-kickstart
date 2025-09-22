@@ -4,13 +4,14 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "codex": "CODEX_HOME=./.codex codex",
     "astro": "astro"
   },
   "dependencies": {
     "@ariakit/react": "^0.4.17",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.5",
     "@astrojs/react": "^4.3.1",
     "@astrojs/vercel": "^8.2.7",

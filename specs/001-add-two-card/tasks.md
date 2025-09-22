@@ -4,29 +4,29 @@
 **Prerequisites**: plan.md, research.md, data-model.md, contracts/, quickstart.md
 
 ## Phase 3.1: Setup
-- [ ] T001 Ensure project dependencies are installed by running `npm install` in `/Users/timothyjohnson/wrk/astro-kickstart` and note completion in the upcoming QA log.
-- [ ] T002 Review Preline card utility patterns in `src/components/preline/IconCards.astro`, then append an "Implementation Notes" snippet to `specs/001-add-two-card/research.md` listing the exact class names to reuse for the homepage demo cards.
+- [X] T001 Ensure project dependencies are installed by running `npm install` in `/Users/timothyjohnson/wrk/astro-kickstart` and note completion in the upcoming QA log.
+- [X] T002 Review Preline card utility patterns in `src/components/preline/IconCards.astro`, then append an "Implementation Notes" snippet to `specs/001-add-two-card/research.md` listing the exact class names to reuse for the homepage demo cards.
 
 ## Phase 3.2: Verification Scaffolding ⚠️ MUST COMPLETE BEFORE 3.3
-- [ ] T003 [P] Extend `specs/001-add-two-card/contracts/demo-card.md` with a "Verification" section detailing manual checks for the Blog and Todo cards (link target, aria-label, icon fallback, responsive layout).
-- [ ] T004 [P] Create `specs/001-add-two-card/qa-checklist.md` capturing acceptance scenarios, accessibility steps, responsive breakpoints, and placeholders for command logs/screenshots.
-- [ ] T005 Run `npm run astro check` to capture the pre-change baseline and paste the timestamped output into `specs/001-add-two-card/qa-checklist.md`.
-- [ ] T006 Run `npm run build` to record the pre-change baseline and log the result in `specs/001-add-two-card/qa-checklist.md`.
+- [X] T003 [P] Extend `specs/001-add-two-card/contracts/demo-card.md` with a "Verification" section detailing manual checks for the Blog and Todo cards (link target, aria-label, icon fallback, responsive layout).
+- [X] T004 [P] Create `specs/001-add-two-card/qa-checklist.md` capturing acceptance scenarios, accessibility steps, responsive breakpoints, and placeholders for command logs/screenshots.
+- [X] T005 Run `npm run astro check` to capture the pre-change baseline and paste the timestamped output into `specs/001-add-two-card/qa-checklist.md`.
+- [X] T006 Run `npm run build` to record the pre-change baseline and log the result in `specs/001-add-two-card/qa-checklist.md`.
 
 ## Phase 3.3: Core Implementation (ONLY after verification scaffolding is ready)
-- [ ] T007 Update `src/components/Welcome.astro` to insert the new demo cards section directly beneath the hero, including both Blog and Todo anchors, descriptive headings, inline SVG icons marked `aria-hidden="true"`, aria-labels on links, and responsive Tailwind/Preline classes that stack on small screens and render two columns on medium+.
+- [X] T007 Update `src/components/Welcome.astro` to insert the new demo cards section directly beneath the hero, including both Blog and Todo anchors, descriptive headings, inline SVG icons marked `aria-hidden="true"`, aria-labels on links, and responsive Tailwind/Preline classes that stack on small screens and render two columns on medium+.
 
 ## Phase 3.4: Content & Data
 - No content collection or schema updates required for this feature.
 
 ## Phase 3.5: Polish & Review
-- [ ] T008 Update `specs/001-add-two-card/quickstart.md` if the implementation introduces any additional validation or deliverable notes (e.g., screenshots, command outputs) beyond the current guidance.
-- [ ] T009 Re-run `npm run astro check` post-implementation and append the new output plus pass/fail status to `specs/001-add-two-card/qa-checklist.md`.
-- [ ] T010 Re-run `npm run build` post-implementation and log results in `specs/001-add-two-card/qa-checklist.md`.
-- [ ] T011 [P] Author `specs/001-add-two-card/tests/homepage-demo-card-manual.md` describing the user-story integration test steps (Given/When/Then) for verifying the new cards via `npm run preview`.
-- [ ] T012 Run `npm run preview`, execute the manual test from T011, and document outcomes (navigation, responsiveness, accessibility notes) in `specs/001-add-two-card/qa-checklist.md`.
-- [ ] T013 Capture updated homepage screenshots (desktop and mobile if possible), save them under `specs/001-add-two-card/assets/` (e.g., `demo-cards-desktop.png`, `demo-cards-mobile.png`), and reference the files inside the QA checklist.
-- [ ] T014 [P] Draft PR-ready release notes in a new file `specs/001-add-two-card/pr-notes.md`, summarizing the feature impact, accessibility evidence, and command outputs for reuse in the eventual pull request.
+- [X] T008 Update `specs/001-add-two-card/quickstart.md` if the implementation introduces any additional validation or deliverable notes (e.g., screenshots, command outputs) beyond the current guidance.
+- [X] T009 Re-run `npm run astro check` post-implementation and append the new output plus pass/fail status to `specs/001-add-two-card/qa-checklist.md`.
+- [X] T010 Re-run `npm run build` post-implementation and log results in `specs/001-add-two-card/qa-checklist.md`.
+- [X] T011 [P] Author `specs/001-add-two-card/tests/homepage-demo-card-manual.md` describing the user-story integration test steps (Given/When/Then) for verifying the new cards via `npm run preview`.
+- [X] T012 Run `npm run preview`, execute the manual test from T011, and document outcomes (navigation, responsiveness, accessibility notes) in `specs/001-add-two-card/qa-checklist.md`.
+- [X] T013 Capture updated homepage screenshots (desktop and mobile if possible), save them under `specs/001-add-two-card/assets/` (e.g., `demo-cards-desktop.png`, `demo-cards-mobile.png`), and reference the files inside the QA checklist.
+- [X] T014 [P] Draft PR-ready release notes in a new file `specs/001-add-two-card/pr-notes.md`, summarizing the feature impact, accessibility evidence, and command outputs for reuse in the eventual pull request.
 
 ## Dependencies
 - T002 depends on T001 (needs repository ready before extracting utility classes).
