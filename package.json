@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "codex": "CODEX_HOME=./.codex codex",
     "astro": "astro"
   },
   "dependencies": {
