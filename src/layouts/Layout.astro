@@ -6,20 +6,44 @@ import '@fontsource/kalam';
 import '@fontsource-variable/fira-code';
 import '@fontsource-variable/comfortaa';
 import '@fontsource-variable/lexend';
+import ThemePickerDropdown from '@/components/ThemePickerDropdown'
+import { DEFAULT_THEME, getAvailableThemes, THEME_STORAGE_KEY } from '@/lib/theme'
+
+const availableThemes = getAvailableThemes()
+const defaultTheme = DEFAULT_THEME
+const storageKey = THEME_STORAGE_KEY
 
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme={defaultTheme}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<script is:inline define:vars={{ storageKey, defaultTheme }}>
+			try {
+				const stored = window.localStorage.getItem(storageKey)
+				document.documentElement.dataset.theme = stored || defaultTheme
+			} catch (error) {
+				document.documentElement.dataset.theme = defaultTheme
+			}
+		</script>
 	</head>
 	<body>
-		<slot />
+		<header class="flex justify-end p-4">
+			<ThemePickerDropdown
+				client:load
+				themes={availableThemes}
+				defaultTheme={defaultTheme}
+				storageKey={storageKey}
+			/>
+		</header>
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
 

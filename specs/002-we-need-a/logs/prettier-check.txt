@@ -1,0 +1,33 @@
+Checking formatting...
+[error] No parser could be inferred for file: src/components/Aside.astro
+[error] No parser could be inferred for file: src/components/preline/IconBlocks.astro
+[error] No parser could be inferred for file: src/components/preline/IconCards.astro
+[warn] src/components/ThemePickerDropdown.tsx
+[warn] src/components/TodoApp.tsx
+[error] No parser could be inferred for file: src/components/Welcome.astro
+[warn] src/content/config.ts
+[warn] src/hooks/use-toast.ts
+[error] No parser could be inferred for file: src/layouts/BlogLayout.astro
+[error] No parser could be inferred for file: src/layouts/Layout.astro
+[warn] src/lib/theme.ts
+[warn] src/lib/utils.ts
+[error] No parser could be inferred for file: src/pages/blog/[slug].astro
+[error] No parser could be inferred for file: src/pages/blog/index.astro
+[error] No parser could be inferred for file: src/pages/index.astro
+[error] No parser could be inferred for file: src/pages/todo.astro
+[warn] specs/002-we-need-a/contracts/theme-picker.md
+[warn] specs/002-we-need-a/data-model.md
+[warn] specs/002-we-need-a/logs/accessibility.md
+[error] No parser could be inferred for file: specs/002-we-need-a/logs/astro-check-baseline.txt
+[error] No parser could be inferred for file: specs/002-we-need-a/logs/astro-check-post.txt
+[error] No parser could be inferred for file: specs/002-we-need-a/logs/build.txt
+[warn] specs/002-we-need-a/logs/manual-qa.md
+[error] No parser could be inferred for file: specs/002-we-need-a/logs/prettier-check.txt
+[warn] specs/002-we-need-a/plan.md
+[warn] specs/002-we-need-a/quickstart.md
+[warn] specs/002-we-need-a/research.md
+[warn] specs/002-we-need-a/spec.md
+[warn] specs/002-we-need-a/tasks.md
+[warn] specs/002-we-need-a/tests/theme-persistence.md
+[warn] specs/002-we-need-a/tests/theme-picker-contract.md
+[warn] Code style issues found in 17 files. Forgot to run Prettier?

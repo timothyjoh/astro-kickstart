@@ -1,0 +1,79 @@
+
+> astro-kickstart@0.0.1 astro
+> astro check
+
+10:54:58 [content] Syncing content
+10:54:58 [content] Synced content
+10:54:58 [types] Generated 298ms
+10:54:58 [check] Getting diagnostics for Astro files in /Users/timothyjohnson/wrk/astro-kickstart...
+[96msrc/components/TodoApp.tsx[0m:[93m82[0m:[93m11[0m - [91merror[0m[90m ts(7053): [0mElement implicitly has an 'any' type because expression of type '0' can't be used to index type 'EventTarget'.
+  Property '0' does not exist on type 'EventTarget'.
+
+[7m82[0m           e.target[0].value = ''
+[7m  [0m [91m          ~~~~~~~~~~~[0m
+[96msrc/components/TodoApp.tsx[0m:[93m81[0m:[93m28[0m - [91merror[0m[90m ts(2339): [0mProperty 'elements' does not exist on type 'EventTarget'.
+
+[7m81[0m           addTodo(e.target.elements['todoinput'].value)
+[7m  [0m [91m                           ~~~~~~~~[0m
+[96msrc/components/TodoApp.tsx[0m:[93m75[0m:[93m19[0m - [93mwarning[0m[90m ts(6133): [0m'todos' is declared but its value is never read.
+
+[7m75[0m function TodoForm({ todos }: { todos: Todo[] }) {
+[7m  [0m [93m                  ~~~~~~~~~[0m
+[96msrc/components/TodoApp.tsx[0m:[93m68[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'toggleAll' is declared but its value is never read.
+
+[7m68[0m function toggleAll(todos: Todo[]) {
+[7m  [0m [93m         ~~~~~~~~~[0m
+[96msrc/components/TodoApp.tsx[0m:[93m62[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'deleteCompleted' is declared but its value is never read.
+
+[7m62[0m function deleteCompleted(todos: Todo[]) {
+[7m  [0m [93m         ~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/Welcome.astro[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'IconCards' is declared but its value is never read.
+
+[7m4[0m import IconCards from './preline/IconCards.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/hooks/use-toast.ts[0m:[93m161[0m:[93m22[0m - [91merror[0m[90m ts(7006): [0mParameter 'open' implicitly has an 'any' type.
+
+[7m161[0m       onOpenChange: (open) => {
+[7m   [0m [91m                     ~~~~[0m
+[96msrc/hooks/use-toast.ts[0m:[93m9[0m:[93m8[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/ui/toast' or its corresponding type declarations.
+
+[7m9[0m } from "@/components/ui/toast"
+[7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/layouts/BlogLayout.astro[0m:[93m215[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'progressText' is possibly 'null'.
+
+[7m215[0m         progressText.textContent = Math.round(clampedPercent) + '%';
+[7m   [0m [91m        ~~~~~~~~~~~~[0m
+[96msrc/layouts/BlogLayout.astro[0m:[93m214[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'progressBar' is possibly 'null'.
+
+[7m214[0m         progressBar.style.width = clampedPercent + '%';
+[7m   [0m [91m        ~~~~~~~~~~~[0m
+[96msrc/layouts/BlogLayout.astro[0m:[93m207[0m:[93m27[0m - [91merror[0m[90m ts(18047): [0m'article' is possibly 'null'.
+
+[7m207[0m         const docHeight = article.offsetHeight;
+[7m   [0m [91m                          ~~~~~~~[0m
+[96msrc/layouts/BlogLayout.astro[0m:[93m200[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'toc' is possibly 'null'.
+
+[7m200[0m         toc.innerHTML = tocHTML;
+[7m   [0m [91m        ~~~[0m
+[96msrc/layouts/BlogLayout.astro[0m:[93m185[0m:[93m11[0m - [91merror[0m[90m ts(18047): [0m'toc' is possibly 'null'.
+
+[7m185[0m           toc.innerHTML = '<span class="text-gray-400">No headings found</span>';
+[7m   [0m [91m          ~~~[0m
+
+[96msrc/pages/blog/[slug].astro[0m:[93m23[0m:[93m3[0m - [91merror[0m[90m ts(2322): [0mType 'Date' is not assignable to type 'string'.
+
+[7m23[0m   date={entry.data.date}
+[7m  [0m [91m  ~~~~[0m
+[96msrc/pages/blog/[slug].astro[0m:[93m2[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'getCollection' is declared but its value is never read.
+
+[7m2[0m import { getCollection, getEntry } from 'astro:content';
+[7m [0m [93m         ~~~~~~~~~~~~~[0m
+
+Result (19 files): 
+- 10 errors
+- 0 warnings
+- 5 hints
+

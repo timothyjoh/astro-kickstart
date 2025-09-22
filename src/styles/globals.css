@@ -36,44 +36,44 @@
   }
 
   h1 {
-    @apply font-title text-4xl font-medium text-gray-900 mb-4 py-6 leading-tight;
+    @apply font-title text-4xl font-medium text-base-content mb-4 py-6 leading-tight;
   }
   .prose {
     @apply font-serif relative;
   }
 
   .prose h2 {
-    @apply font-title text-2xl font-medium text-gray-900 mt-8 mb-4 pt-6 leading-tight;
+    @apply font-title text-2xl font-medium text-base-content mt-8 mb-4 pt-6 leading-tight;
   }
 
   .prose h3 {
-    @apply font-serif text-xl font-bold text-gray-900 mt-6 mb-3 pt-6 leading-tight;
+    @apply font-serif text-xl font-bold text-base-content mt-6 mb-3 pt-6 leading-tight;
   }
 
   .prose h4 {
-    @apply font-sans text-lg font-bold text-gray-900 mt-5 mb-2 leading-tight;
+    @apply font-sans text-lg font-bold text-base-content mt-5 mb-2 leading-tight;
   }
 
   .prose p {
-    @apply font-serif text-base text-gray-800 leading-relaxed mb-4 py-2;
+    @apply font-serif text-base-content leading-relaxed mb-4 py-2;
     em {
       @apply font-hand not-italic text-[1.05rem];
     }
   }
 
   .prose blockquote {
-    @apply border-l-4 border-blue-500 pl-4 my-6;
+    @apply border-l-4 border-secondary pl-4 my-6;
     p {
-      @apply font-hand text-lg text-gray-700;
+      @apply font-hand text-lg text-base-content;
     }
   }
 
   .prose code {
-    @apply font-mono text-sm bg-gray-100 px-2 py-1 rounded;
+    @apply font-mono text-sm px-2 py-1 rounded;
   }
 
   .prose pre {
-    @apply font-mono text-sm bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+    @apply font-mono text-sm text-primary p-4 rounded-lg overflow-x-auto my-6;
   }
 
   .prose pre code {
@@ -82,7 +82,7 @@
 
   .prose ul,
   .prose ol {
-    @apply font-serif text-gray-800 ml-6 mb-4;
+    @apply font-serif text-base-content ml-6 mb-4;
   }
 
   .prose li {
@@ -90,11 +90,11 @@
   }
 
   .prose a {
-    @apply text-blue-600 hover:text-blue-800 transition-colors;
+    @apply text-accent-content hover:text-accent-content/70 transition-colors;
   }
 
   .prose strong {
-    @apply font-bold text-gray-900;
+    @apply font-bold text-base-content;
   }
 
   .prose em {
@@ -102,7 +102,7 @@
   }
 
   .aside {
-    @apply font-sans text-sm p-2 lg:m-1 lg:w-[200px] text-left lg:left-[-220px] lg:absolute lg:border-r-[3px] border-solid bg-gray-50 border-gray-200 border-l-2 lg:border-l-0 lg:bg-transparent mx-0;
+    @apply font-sans text-sm p-2 lg:m-1 lg:w-[200px] text-left lg:left-[-220px] lg:absolute lg:border-r-[3px] border-solid bg-accent-content border-accent/10 border-l-2 lg:border-l-0 lg:bg-transparent mx-0;
   }
 
   .aside--note {
