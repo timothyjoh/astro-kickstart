@@ -22,14 +22,14 @@ const blogPosts = allPosts
 ---
 
 <Layout>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-base-200">
     <!-- Header -->
-    <div class="bg-white border-b border-gray-200">
+    <div class="bg-base-300 border-b border-base-content">
       <div class="max-w-4xl mx-auto px-6 py-12">
-        <h1 class="font-title text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="font-title text-4xl font-bold text-base-content mb-4">
           Demonstration Blog
         </h1>
-        <p class="font-sans text-xl text-gray-600 leading-relaxed">
+        <p class="font-sans text-xl text-base-content leading-relaxed">
           Thoughts on creativity, productivity, and the art of living well.
         </p>
       </div>
@@ -39,9 +39,9 @@ const blogPosts = allPosts
     <div class="max-w-4xl mx-auto px-6 py-12">
       <div class="space-y-12">
         {blogPosts.map(post => (
-          <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <article class="bg-base-100 rounded-lg shadow-sm border border-base-content overflow-hidden hover:shadow-md transition-shadow duration-300">
             <div class="p-8">
-              <div class="flex items-center gap-4 mb-4 text-sm text-gray-500 font-sans">
+              <div class="flex items-center gap-4 mb-4 text-sm text-base-content font-sans">
                 <time datetime={post.date}>
                   {new Date(post.date).toLocaleDateString('en-US', { 
                     year: 'numeric', 
@@ -53,20 +53,20 @@ const blogPosts = allPosts
                 <span>{post.readTime}</span>
               </div>
               
-              <h2 class="font-serif text-2xl font-bold text-gray-900 mb-3 leading-tight">
-                <a href={`/blog/${post.slug}`} class="hover:text-gray-700 transition-colors">
+              <h2 class="font-serif text-2xl font-bold text-base-content mb-3 leading-tight">
+                <a href={`/blog/${post.slug}`} class="hover:text-base-content transition-colors">
                   {post.title}
                 </a>
               </h2>
               
-              <p class="font-serif text-gray-700 leading-relaxed mb-4">
+              <p class="font-serif text-base-content leading-relaxed mb-4">
                 {post.description}
               </p>
               
               <div class="flex items-center justify-between">
                 <div class="flex flex-wrap gap-2">
                   {post.tags.map(tag => (
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-sans">
+                    <span class="bg-base-200 text-base-content px-3 py-1 rounded-full text-xs font-sans">
                       #{tag}
                     </span>
                   ))}
@@ -74,7 +74,7 @@ const blogPosts = allPosts
                 
                 <a 
                   href={`/blog/${post.slug}`} 
-                  class="font-sans text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
+                  class="font-sans text-info hover:text-info/50 font-medium text-sm transition-colors"
                 >
                   Read more →
                 </a>
